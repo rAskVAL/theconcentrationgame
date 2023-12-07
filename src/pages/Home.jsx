@@ -11,7 +11,7 @@ export default function Home() {
         </Link>
       </h1>
       <img
-        src="/public/picture.gif"
+        src="/picture.gif"
         className="fixed opacity-10 h-[120dvh] overflow-hidden object-cover -z-10"
       ></img>
     </div>
