@@ -156,13 +156,13 @@ export default function Play() {
       </motion.div>
       <AnimatePresence>
         {gameState.winner && (
-          <div className="p-4 w-full fixed top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2">
+          <div className="p-4 w-full fixed top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2 md:w-fit md:absolute">
             <motion.div
               initial={{ opacity: 0, display: "flex" }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, display: "none" }}
               transition={{ opacity: { delay: 0.5 } }}
-              className="md:absolute w-full md:w-96 flex flex-col px-10 py-6 gap-4 items-center justify-center bg-primaryDark rounded-lg border-2 border-primaryGreen"
+              className="w-full md:w-96 flex flex-col px-10 py-6 gap-4 items-center justify-center bg-primaryDark rounded-lg border-2 border-primaryGreen"
             >
               <h1>Congratulations, you won!</h1>
               <div className="bg-white/5 p-2 w-full rounded-lg flex flex-col items-center">
