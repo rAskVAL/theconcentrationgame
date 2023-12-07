@@ -1,10 +1,48 @@
 /* eslint-disable react/prop-types */ // TODO: upgrade to latest eslint tooling
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Card({ card, handleClick, gameState }) {
   const [isFlipped, setIsFlipped] = useState(false);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["15.5deg", "-15.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-15.5deg", "15.5deg"]
+  );
+
+  function onMouseMove(e) {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  }
+
+  function onMouseLeave() {
+    y.set(0);
+    x.set(0);
+  }
 
   useEffect(() => {
     if (
@@ -27,16 +65,20 @@ export default function Card({ card, handleClick, gameState }) {
 
   return (
     <motion.div
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
       initial={{
         opacity: 0,
         y: (Math.random() < 0.5 ? -1 : 1) * Math.random() * 1000,
         x: (Math.random() < 0.5 ? -1 : 1) * Math.random() * 1000,
       }}
+      whileHover={{ scale: 1.03, opacity: 1 }}
       animate={{
-        opacity: gameState.restarting ? 0 : 1,
+        opacity: gameState.restarting ? 0 : 0.7,
         y: 0,
         x: 0,
       }}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       exit={{ opacity: 0 }}
       transition={{ delay: Math.random() * 0.5, duration: 0.5 }}
       className="flip-card h-36 sm:w-40 sm:h-40"
