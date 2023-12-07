@@ -10,14 +10,10 @@ export default function Home() {
           here
         </Link>
       </h1>
-      <video
-        autoPlay
-        muted
-        loop
-        className="fixed opacity-10 h-[120dvh] overflow-hidden md:block hidden -z-10"
-      >
-        <source src="/public/video.mp4" type="video/mp4" />
-      </video>
+      <img
+        src="/public/picture.gif"
+        className="fixed opacity-10 h-[120dvh] overflow-hidden object-cover -z-10"
+      ></img>
     </div>
   );
 }
