@@ -15,12 +15,12 @@ export default function Card({ card, handleClick, gameState }) {
   const rotateX = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    ["15.5deg", "-15.5deg"]
+    ["15.5deg", "-15.5deg"],
   );
   const rotateY = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    ["-15.5deg", "15.5deg"]
+    ["-15.5deg", "15.5deg"],
   );
 
   function onMouseMove(e) {
@@ -83,7 +83,7 @@ export default function Card({ card, handleClick, gameState }) {
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       exit={{ opacity: 0 }}
       transition={{ delay: Math.random() * 0.5, duration: 0.5 }}
-      className="flip-card h-36 sm:w-40 sm:h-40"
+      className="flip-card h-36 sm:h-40 sm:w-40"
     >
       <motion.div
         initial={false}
@@ -97,20 +97,20 @@ export default function Card({ card, handleClick, gameState }) {
             gameState.firstCard &&
             gameState.secondCard &&
             !card.matched &&
-            "opacity-50 grayscale cursor-default"
+            "cursor-default opacity-50 grayscale"
           } ${
-            card.matched && "opacity-5 grayscale cursor-default"
-          } duration-500 flip-card-front cursor-pointer transition-all h-full w-full aspect-square p-8 flex items-center bg-gradient-to-tr from-primaryGreen border-2 border-white to-primaryDark rounded-lg justify-center`}
+            card.matched && "cursor-default opacity-5 grayscale"
+          } flip-card-front flex aspect-square h-full w-full cursor-pointer items-center justify-center rounded-lg border-2 border-white bg-gradient-to-tr from-primaryGreen to-primaryDark p-8 transition-all duration-500`}
         >
           <img
-            className="h-20 opacity-5 object-contain pointer-events-none"
+            className="pointer-events-none h-20 object-contain opacity-5"
             src="/img/logo_small.png"
             alt="game logo"
           />
         </div>
-        <div className="flip-card-back p-8 flex items-center h-full w-full bg-gradient-to-tr from-primaryGreen border-2 border-white to-primaryDark rounded-lg justify-center">
-          <div className="rounded-full bg-primaryDark aspect-square flex items-center justify-center overflow-hidden">
-            <img src={card.src} className="object-contain w-1/2" alt="card" />
+        <div className="flip-card-back flex h-full w-full items-center justify-center rounded-lg border-2 border-white bg-gradient-to-tr from-primaryGreen to-primaryDark p-8">
+          <div className="flex aspect-square items-center justify-center overflow-hidden rounded-full bg-primaryDark">
+            <img src={card.src} className="w-1/2 object-contain" alt="card" />
           </div>
         </div>
       </motion.div>

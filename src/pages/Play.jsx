@@ -49,7 +49,7 @@ export default function Play() {
         setGameState((prev) => {
           return { ...prev, restarting: false };
         }),
-      1000
+      1000,
     );
     setGameState((prev) => {
       return { ...prev, winner: false };
@@ -127,8 +127,8 @@ export default function Play() {
   }, [gameState.firstCard, gameState.secondCard]);
 
   return (
-    <div className="h-full flex flex-col-reverse justify-center items-center relative my-4 px-4 py-10 overflow-hidden">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  grid-rows-4 gap-4  w-full sm:w-fit relative">
+    <div className="relative my-4 flex h-full flex-col-reverse items-center justify-center overflow-hidden px-4 py-10">
+      <div className="relative grid w-full grid-cols-2  grid-rows-4 gap-4  sm:w-fit sm:grid-cols-3 md:grid-cols-4">
         {gameState.cardDeck.map((card, index) => (
           <Card
             key={index}
@@ -141,9 +141,9 @@ export default function Play() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="flex flex-col gap-4 md:z-50 md:absolute bottom-10 mb-4 md:top-0 md:right-8 p-8 w-full h-fit md:w-64 rounded-lg bg-primaryDark border-2 border-white"
+        className="bottom-10 mb-4 flex h-fit w-full flex-col gap-4 rounded-lg border-2 border-white bg-primaryDark p-8 md:absolute md:right-8 md:top-0 md:z-50 md:w-64"
       >
-        <div className="bg-white/5 p-2 rounded-lg flex flex-col items-center">
+        <div className="flex flex-col items-center rounded-lg bg-white/5 p-2">
           <p>
             High score: {Number(localStorage.getItem("highscore")) || 0} turns!
           </p>
@@ -156,16 +156,16 @@ export default function Play() {
       </motion.div>
       <AnimatePresence>
         {gameState.winner && (
-          <div className="p-4 w-full fixed top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2 md:w-fit md:absolute">
+          <div className="fixed left-1/2 top-1/2 w-full -translate-x-1/2  -translate-y-1/2 p-4 md:absolute md:w-fit">
             <motion.div
               initial={{ opacity: 0, display: "flex" }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, display: "none" }}
               transition={{ opacity: { delay: 0.5 } }}
-              className="w-full md:w-96 flex flex-col px-10 py-6 gap-4 items-center justify-center bg-primaryDark rounded-lg border-2 border-primaryGreen"
+              className="flex w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-primaryGreen bg-primaryDark px-10 py-6 md:w-96"
             >
               <h1>Congratulations, you won!</h1>
-              <div className="bg-white/5 p-2 w-full rounded-lg flex flex-col items-center">
+              <div className="flex w-full flex-col items-center rounded-lg bg-white/5 p-2">
                 <p>
                   High Score:{" "}
                   {localStorage.getItem("highscore") || gameState.turns} Turns!

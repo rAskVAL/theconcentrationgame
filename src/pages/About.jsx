@@ -3,9 +3,9 @@ import UserCard from "../components/UserCard";
 export default function About() {
   return (
     <div className="container mx-auto my-4 w-full  p-4">
-      <h1 className="text-3xl font-bold mb-4">About Us</h1>
+      <h1 className="mb-4 text-3xl font-bold">About Us</h1>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Goal of this project:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Goal of this project:</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -17,7 +17,7 @@ export default function About() {
         </p>
       </div>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Tools used:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Tools used:</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -29,8 +29,8 @@ export default function About() {
         </p>
       </div>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2 ">Team:</h2>
-        <div className="grid sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        <h2 className="mb-2 text-2xl font-bold ">Team:</h2>
+        <div className="grid gap-4  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           <UserCard />
           <UserCard />
           <UserCard />

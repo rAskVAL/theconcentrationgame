@@ -4,7 +4,7 @@ export default function ResetButton({ restartGame, children = "Reset" }) {
   return (
     <button
       onClick={restartGame}
-      className="w-full bg-primaryGreen py-2 rounded-lg text-primaryDark font-semibold"
+      className="w-full rounded-lg bg-primaryGreen py-2 font-semibold text-primaryDark"
     >
       {children}
     </button>

@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 
 export default function AppLayout() {
   return (
-    <div className="flex flex-col justify-between min-h-[100dvh]">
+    <div className="flex min-h-[100dvh] flex-col justify-between">
       <Navbar />
       <main className="h-full">
         <Outlet />

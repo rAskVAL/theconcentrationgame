@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 export default function Home() {
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto px-10">
+    <div className="container mx-auto flex flex-col items-center justify-center px-10">
       <motion.img
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -10,7 +10,7 @@ export default function Home() {
         src="/img/logo.png"
         alt="logo"
       />
-      <h1 className="mt-10 uppercase text-center">
+      <h1 className="mt-10 text-center uppercase">
         Welcome to the concentration game! To start a game please press{" "}
         <Link className="text-primaryGreen underline" to="/play">
           here
@@ -18,7 +18,7 @@ export default function Home() {
       </h1>
       <img
         src="/picture.gif"
-        className="fixed opacity-10 h-[120dvh] overflow-hidden object-cover -z-10"
+        className="fixed -z-10 h-[120dvh] overflow-hidden object-cover opacity-10"
       ></img>
     </div>
   );

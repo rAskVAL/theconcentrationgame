@@ -2,9 +2,9 @@ export default function Instructions() {
   return (
     <div className="container mx-auto my-4 w-full rounded-lg p-4">
       {" "}
-      <h1 className="text-3xl font-bold mb-4">The Concentration Game: Rules</h1>
+      <h1 className="mb-4 text-3xl font-bold">The Concentration Game: Rules</h1>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Objective:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Objective:</h2>
         <p>
           The goal of the game is to match pairs of cards with identical
           pictures of web development tools. The player aims to find all
@@ -12,7 +12,7 @@ export default function Instructions() {
         </p>
       </div>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Gameplay:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Gameplay:</h2>
         <ol className="list-decimal pl-6">
           <li>Start with all cards face-down.</li>
           <li>Flip over any two cards in the grid.</li>
@@ -35,11 +35,11 @@ export default function Instructions() {
         </ol>
       </div>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Winning:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Winning:</h2>
         <p>The game ends when all 8 pairs have been successfully matched.</p>
       </div>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Scoring:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Scoring:</h2>
         <ol className="list-decimal pl-6">
           <li>Each turn is counted as one move.</li>
           <li>
@@ -52,7 +52,7 @@ export default function Instructions() {
         </ol>
       </div>
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Tips:</h2>
+        <h2 className="mb-2 text-2xl font-bold">Tips:</h2>
         <ol className="list-decimal pl-6">
           <li>Take your time and study the cards before making a move.</li>
           <li>
