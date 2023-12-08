@@ -44,6 +44,8 @@ export default function Card({ card, handleClick, gameState }) {
     x.set(0);
   }
 
+  //checks what cards are selected, if its this one it will rotate it
+
   useEffect(() => {
     if (
       gameState.firstCard?.key === card.key ||

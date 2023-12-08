@@ -1,8 +1,8 @@
 export const Navlinks = [
   { title: "Home", href: "/" },
-  { title: "The Game", href: "/play" },
   { title: "Instructions", href: "/instructions" },
   { title: "About us", href: "/about" },
+  { title: "The Game", href: "/play", special: true },
 ];
 
 export const cards = [

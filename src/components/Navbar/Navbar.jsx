@@ -11,20 +11,34 @@ export default function Navbar() {
         <Link to="/" className="h-11">
           <img className="h-full" src="/img/logo.png" alt="logotype" />
         </Link>
-        <ul className="md:flex hidden list-none gap-4 text-white">
-          {Navlinks.map((link, index) => (
-            <NavLink
-              to={link.href}
-              key={index}
-              className={({ isActive }) =>
-                isActive
-                  ? "hover:text-primaryGreen text-primaryGreen"
-                  : "hover:text-primaryGreen "
-              }
-            >
-              {link.title}
-            </NavLink>
-          ))}
+        <ul className="md:flex hidden list-none gap-4 text-white items-center">
+          {Navlinks.map((link, index) =>
+            link.special ? (
+              <NavLink
+                to={link.href}
+                key={index}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-opacity-10 hover:text-white text-white bg-primaryGreen py-2 px-3 rounded-lg transition-all border-2 border-primaryGreen font-semibold hover:border-opacity-30"
+                    : "hover:bg-opacity-10 hover:border-opacity-100 hover:text-white bg-primaryGreen py-2 px-3 rounded-lg text-primaryDark border-2  font-semibold border-primaryGreen border-opacity-0  transition-all"
+                }
+              >
+                {link.title}
+              </NavLink>
+            ) : (
+              <NavLink
+                to={link.href}
+                key={index}
+                className={({ isActive }) =>
+                  isActive
+                    ? "hover:text-primaryGreen text-primaryGreen"
+                    : "hover:text-primaryGreen "
+                }
+              >
+                {link.title}
+              </NavLink>
+            )
+          )}
         </ul>
         <i
           onClick={() => setIsOpen((curr) => !curr)}
