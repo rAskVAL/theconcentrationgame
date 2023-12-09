@@ -95,7 +95,7 @@ export default function Play() {
         localStorage.setItem("highscore", gameState.turns);
       } else if (gameState.turns < Number(localStorage.getItem("highscore"))) {
         localStorage.setItem("highscore", gameState.turns);
-      } else localStorage.setItem("highscore", gameState.turns);
+      } else return;
     }
   }, [gameState.score, gameState.turns]);
 
