@@ -127,8 +127,8 @@ export default function Play() {
   }, [gameState.firstCard, gameState.secondCard]);
 
   return (
-    <div className="relative my-4 flex h-full flex-col-reverse items-center justify-center overflow-hidden px-4 py-10">
-      <div className="relative grid w-full grid-cols-2  grid-rows-4 gap-4  sm:w-fit sm:grid-cols-3 md:grid-cols-4">
+    <div className="relative my-4 flex h-full flex-col-reverse items-center justify-center overflow-hidden px-4">
+      <div className="relative my-4 grid w-full grid-cols-2  grid-rows-4 gap-4  sm:w-fit sm:grid-cols-3 md:grid-cols-4">
         {gameState.cardDeck.map((card, index) => (
           <Card
             key={index}

@@ -6,7 +6,7 @@ export default function AppLayout() {
   return (
     <div className="flex min-h-[100dvh] flex-col justify-between">
       <Navbar />
-      <main className="h-full">
+      <main>
         <Outlet />
       </main>
       <Footer />
