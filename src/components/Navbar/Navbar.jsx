@@ -46,8 +46,8 @@ export default function Navbar() {
               className="flex cursor-pointer items-center gap-1"
               onClick={() => setModal((curr) => !curr)}
             >
-              <i className="ti ti-brand-vue"></i>
-              <p>Vue.js Version</p>
+              <i className="ti ti-brand-react"></i>
+              <p>React.js Version</p>
               <i
                 className={`ti ti-chevron-down transition-all ${
                   modal && "-rotate-90"
