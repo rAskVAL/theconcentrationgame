@@ -1,52 +1,20 @@
 /* eslint-disable react/prop-types */ // TODO: upgrade to latest eslint tooling
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import VanillaTilt from "vanilla-tilt";
 
 export default function Card({ card, handleClick, gameState }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(
-    mouseYSpring,
-    [-0.5, 0.5],
-    ["15.5deg", "-15.5deg"],
-  );
-  const rotateY = useTransform(
-    mouseXSpring,
-    [-0.5, 0.5],
-    ["-15.5deg", "15.5deg"],
-  );
-
-  function onMouseMove(e) {
-    const rect = e.target.getBoundingClientRect();
-
-    const width = rect.width;
-    const height = rect.height;
-
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-
-    x.set(xPct);
-    y.set(yPct);
-  }
-
-  function onMouseLeave() {
-    y.set(0);
-    x.set(0);
-  }
-
   //checks what cards are selected, if its this one it will rotate it
 
   useEffect(() => {
+    const element = document.querySelectorAll(".card");
+    VanillaTilt.init(element, {
+      scale: 1.03,
+      max: 10,
+    });
     if (
       gameState.firstCard?.key === card.key ||
       gameState.secondCard?.key === card.key
@@ -67,23 +35,21 @@ export default function Card({ card, handleClick, gameState }) {
 
   return (
     <motion.div
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
       initial={{
         opacity: 0,
         y: (Math.random() < 0.5 ? -1 : 1) * Math.random() * 1000,
         x: (Math.random() < 0.5 ? -1 : 1) * Math.random() * 1000,
       }}
-      whileHover={{ scale: 1.03, opacity: 1 }}
+      whileHover={{ opacity: 1 }}
       animate={{
         opacity: gameState.restarting ? 0 : 0.7,
         y: 0,
         x: 0,
       }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      style={{ transformStyle: "preserve-3d" }}
       exit={{ opacity: 0 }}
-      transition={{ delay: Math.random() * 0.5, duration: 0.5 }}
-      className="flip-card h-36 sm:h-40 sm:w-40"
+      transition={{ opacity: { delay: Math.random() * 0.5, duration: 0.5 } }}
+      className="flip-card card h-36 sm:h-40 sm:w-40"
     >
       <motion.div
         initial={false}

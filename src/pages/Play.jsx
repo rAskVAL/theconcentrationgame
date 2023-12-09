@@ -59,7 +59,7 @@ export default function Play() {
   // handle click when selected card pressed
 
   function handleClick(card) {
-    if (gameState.firstCard) {
+    if (gameState.firstCard && gameState.firstCard !== card) {
       setGameState((prev) => {
         return { ...prev, secondCard: card };
       });
@@ -141,7 +141,7 @@ export default function Play() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="bottom-10 mb-4 flex h-fit w-full flex-col gap-4 rounded-lg border-2 border-white bg-primaryDark p-8 md:absolute md:right-8 md:top-0 md:z-50 md:w-64"
+        className="bottom-10 mb-4 flex h-fit w-full flex-col gap-4 rounded-lg border-2 border-white bg-primaryDark p-8 md:absolute md:right-8 md:top-0 md:w-64"
       >
         <div className="flex flex-col items-center rounded-lg bg-white/5 p-2">
           <p>
